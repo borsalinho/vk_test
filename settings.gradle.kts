@@ -17,3 +17,4 @@ rootProject.name = "converter"
 include(":app")
 include(":data")
 include(":domain")
+include(":checknet")

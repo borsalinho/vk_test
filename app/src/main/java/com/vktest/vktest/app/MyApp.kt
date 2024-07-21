@@ -2,6 +2,7 @@ package com.vktest.vktest.app
 
 import android.app.Application
 import com.vktest.vktest.di.AppModule
+import com.vktest.vktest.di.CheckNetworkModule
 import com.vktest.vktest.di.DaggerMyAppComponent
 import com.vktest.vktest.di.DataModule
 import com.vktest.vktest.di.DomainModule
@@ -16,6 +17,7 @@ class MyApp : Application() {
             .appModule(AppModule(context = this))
             .dataModule(DataModule())
             .domainModule(DomainModule())
+            .checkNetworkModule(CheckNetworkModule())
             .build()
     }
 }

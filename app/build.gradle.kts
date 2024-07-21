@@ -42,6 +42,7 @@ android {
 dependencies {
 
     implementation(project(":domain"))
+    implementation(project(":checknet"))
 
     // ----------это все для DI
     implementation(project(":data"))
