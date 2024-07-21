@@ -20,6 +20,16 @@
             android:layout_gravity="center_horizontal"
             android:text="No internet connection. Try later again"
             android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textNoApi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Not find API. Try later again"
+            android:visibility="gone" />
+
+
     </LinearLayout>
 
     <ProgressBar

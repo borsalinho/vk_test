@@ -1,6 +1,7 @@
 package com.vktest.vktest.di
 
 import android.content.Context
+import com.vktest.domain.usecases.GetValutesUseCase
 import com.vktest.vktest.presentation.ui.mainactivity.MainViewModel
 import dagger.Module
 import dagger.Provides
@@ -16,7 +17,11 @@ class AppModule(val context : Context) {
 
     @Singleton
     @Provides
-    fun provideMainViewModel() : MainViewModel {
-        return MainViewModel()
+    fun provideMainViewModel(
+        valutesUseCase: GetValutesUseCase
+    ) : MainViewModel {
+        return MainViewModel(
+            valutesUseCase = valutesUseCase
+        )
     }
 }

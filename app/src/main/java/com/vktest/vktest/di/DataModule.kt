@@ -1,6 +1,9 @@
 package com.vktest.vktest.di
 
+import com.vktest.data.implementation.ValuteRepositoryImpl
+import com.vktest.data.network.api.ApiCbrDaily
 import com.vktest.data.network.models.ValutesDto
+import com.vktest.domain.repository.ValuteRepository
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -14,12 +17,22 @@ class DataModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit() : ValutesDto {
+    fun provideRetrofit() : ApiCbrDaily {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(ValutesDto::class.java)
+            .create(ApiCbrDaily::class.java)
     }
 
+
+    @Singleton
+    @Provides
+    fun provideValuteRepositoryImpl(
+        apiCbrDaily : ApiCbrDaily
+    ) : ValuteRepository {
+        return ValuteRepositoryImpl(
+            apiCbrDaily = apiCbrDaily
+        )
+    }
 }

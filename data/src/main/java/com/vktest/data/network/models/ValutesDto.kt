@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class ValutesDto(
     @SerializedName("Valute")
-    val valute: Map<String, ValuteDto>
+    val valutes: Map<String,ValuteDto>
 )
