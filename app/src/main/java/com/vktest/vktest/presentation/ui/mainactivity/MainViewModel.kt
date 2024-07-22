@@ -14,7 +14,6 @@ import com.vktest.vktest.presentation.models.ValutesViewData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
-import java.security.Key
 
 class MainViewModel(
     private val valutesUseCase: GetValutesUseCase

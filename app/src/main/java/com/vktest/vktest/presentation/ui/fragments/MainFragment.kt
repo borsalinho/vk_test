@@ -28,6 +28,7 @@ class MainFragment : Fragment() {
     private lateinit var editRUB: TextView
     private lateinit var textValute: TextView
     private lateinit var textResult: TextView
+    private lateinit var textValuteExchange: TextView
 
     private lateinit var btnExchange: Button
     private lateinit var valutesAdapter: ArrayAdapter<String>
@@ -59,6 +60,7 @@ class MainFragment : Fragment() {
         btnExchange = binding.btnExchange
         textValute = binding.textValute
         textResult = binding.textResult
+        textValuteExchange = binding.textValueExcange
     }
 
     private fun buttonScript(){
@@ -87,7 +89,11 @@ class MainFragment : Fragment() {
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 val selectedValute = parent.getItemAtPosition(position) as String
-                textValute.text = selectedValute.substringBefore(" ")
+                val value = selectedValute.substringBefore(" ")
+                textValute.text = value
+                textValuteExchange.text = viewModel
+                    .exchange(ValuteKey(textValute.text.toString()))
+                    .result.toString()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
