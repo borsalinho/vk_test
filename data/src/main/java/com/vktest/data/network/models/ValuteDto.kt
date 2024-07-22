@@ -4,6 +4,9 @@ import com.google.gson.annotations.SerializedName
 
 data class ValuteDto(
     @SerializedName("Value")
-    val value : Double
+    val value : Double,
+
+    @SerializedName("Name")
+    val name : String
 )
 

@@ -7,10 +7,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.vktest.domain.usecases.GetValutesUseCase
 import com.vktest.vktest.presentation.mapper.toValutesViewData
+import com.vktest.vktest.presentation.models.ResultExchange
+import com.vktest.vktest.presentation.models.ValuteKey
+import com.vktest.vktest.presentation.models.ValuteViewData
 import com.vktest.vktest.presentation.models.ValutesViewData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
+import java.security.Key
 
 class MainViewModel(
     private val valutesUseCase: GetValutesUseCase
@@ -29,5 +33,10 @@ class MainViewModel(
                 _valutes.postValue(null)
             }
         }
+    }
+
+    fun exchange(key : ValuteKey) : ResultExchange {
+        val res : ValuteViewData? = valutes.value?.valutes?.get(key.key)
+        return ResultExchange(res?.value ?: -1.0)
     }
 }

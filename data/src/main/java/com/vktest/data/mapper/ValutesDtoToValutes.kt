@@ -7,7 +7,7 @@ import com.vktest.domain.models.Valutes
 fun ValutesDto.ToValutes() : Valutes {
     val valutes = mutableMapOf<String, Valute>()
     for ((key, value) in this.valutes) {
-        valutes[key] = Valute(value.value)
+        valutes[key] = Valute(value.value, value.name)
     }
     return Valutes(valutes)
 }
